@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const features = [
+  {
+    title: 'Consultas de estado de cuenta',
+    description: 'Los residentes consultan su saldo, historial de pagos y fechas de vencimiento directamente por WhatsApp, sin llamar a la administración.',
+  },
+  {
+    title: 'Reportes de mantenimiento',
+    description: 'Recibe reportes de desperfectos con fotos y descripción. El asistente clasifica, prioriza y notifica al equipo correcto.',
+  },
+  {
+    title: 'Reservación de amenidades',
+    description: 'Salón de fiestas, gimnasio, alberca, áreas comunes. Los residentes reservan 24/7 sin intermediarios.',
+  },
+  {
+    title: 'Comunicados y avisos',
+    description: 'Envía avisos de cortes de agua, mantenimientos programados, juntas vecinales y comunicados generales de forma automática.',
+  },
+  {
+    title: 'Reglamento y dudas frecuentes',
+    description: 'El asistente conoce el reglamento interno y responde las preguntas más comunes de los residentes al instante.',
+  },
+  {
+    title: 'Escalamiento a administración',
+    description: 'Cuando se necesita atención humana, el asistente transfiere la conversación con todo el contexto al administrador.',
+  },
+];
+
+const benefits = [
+  { value: '60%', label: 'menos llamadas a administración' },
+  { value: '90%', label: 'satisfacción de residentes' },
+  { value: '24/7', label: 'disponibilidad del asistente' },
+  { value: '50%', label: 'menos tiempo en tareas repetitivas' },
+];
+---
+
+<Layout
+  title="HeyJimmi para Condominios — Asistente IA para Administración"
+  description="Automatiza la administración de tu condominio con un asistente IA. Consultas, reportes, reservaciones y comunicados por WhatsApp."
+>
+  <section class="pt-28 pb-16 sm:pt-36 bg-gradient-to-br from-primary-50 via-white to-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center rounded-full bg-primary-100 px-4 py-1.5 text-sm font-medium text-primary-700 mb-6">
+          Solución para condominios
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold font-heading text-dark mb-6">
+          Un asistente IA para la <span class="text-primary-600">administración de tu condominio</span>
+        </h1>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          Automatiza la comunicación con residentes, reduce llamadas a la administración y mejora la convivencia. Todo desde WhatsApp.
+        </p>
+        <a href="/demo" class="inline-flex items-center justify-center rounded-lg bg-primary-600 px-8 py-3.5 text-base font-semibold text-white hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/25">
+          Agenda un demo para condominios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white border-y border-gray-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        {benefits.map((b) => (
+          <div class="text-center">
+            <div class="text-3xl sm:text-4xl font-extrabold font-heading text-primary-600">{b.value}</div>
+            <div class="mt-1 text-sm text-gray-500">{b.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-dark mb-4">
+          ¿Qué puede hacer el asistente por tu condominio?
+        </h2>
+        <p class="text-lg text-gray-600">
+          Funcionalidades diseñadas específicamente para las necesidades de condominios y conjuntos residenciales.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((f) => (
+          <div class="p-8 rounded-2xl border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300">
+            <h3 class="text-lg font-bold text-dark mb-2">{f.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{f.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-gray-light">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold font-heading text-dark mb-6">¿Cómo funciona para condominios?</h2>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary-600 text-white flex items-center justify-center font-bold">1</span>
+              <div>
+                <h3 class="font-bold text-dark">Nos cuentas sobre tu condominio</h3>
+                <p class="text-sm text-gray-600">Número de unidades, amenidades, reglamento, procesos actuales de comunicación.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary-600 text-white flex items-center justify-center font-bold">2</span>
+              <div>
+                <h3 class="font-bold text-dark">Diseñamos tu asistente</h3>
+                <p class="text-sm text-gray-600">Lo entrenamos con la información de tu condominio: reglamento, cuotas, amenidades, contactos.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary-600 text-white flex items-center justify-center font-bold">3</span>
+              <div>
+                <h3 class="font-bold text-dark">Lo conectamos a WhatsApp</h3>
+                <p class="text-sm text-gray-600">Los residentes empiezan a interactuar con el asistente desde el primer día.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-8 border border-gray-200">
+          <h3 class="font-bold text-dark mb-4">Ejemplo de conversación</h3>
+          <div class="space-y-3">
+            <div class="flex justify-end"><div class="bg-primary-50 text-primary-900 rounded-2xl rounded-tr-sm px-4 py-2 text-sm max-w-[80%]">Hola, ¿cuál es mi estado de cuenta?</div></div>
+            <div class="flex justify-start"><div class="bg-gray-100 text-gray-800 rounded-2xl rounded-tl-sm px-4 py-2 text-sm max-w-[80%]">¡Hola! Tu saldo actual es de $2,350 MXN correspondiente a la cuota de marzo. Tu fecha límite de pago es el 15 de marzo. ¿Te gustaría ver el desglose o hacer tu pago?</div></div>
+            <div class="flex justify-end"><div class="bg-primary-50 text-primary-900 rounded-2xl rounded-tr-sm px-4 py-2 text-sm max-w-[80%]">Quiero reservar el salón de fiestas para el sábado</div></div>
+            <div class="flex justify-start"><div class="bg-gray-100 text-gray-800 rounded-2xl rounded-tl-sm px-4 py-2 text-sm max-w-[80%]">El salón está disponible este sábado. El horario permitido es de 10:00 a 22:00 hrs. ¿A qué hora sería tu evento? Recuerda que se requiere un depósito de $1,500 MXN.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿Listo para modernizar tu condominio?"
+    subtitle="Agenda una demo y te mostramos cómo funciona un asistente IA en un condominio real."
+    buttonText="Agenda demo para condominios"
+  />
+</Layout>

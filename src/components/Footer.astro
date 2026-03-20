@@ -1,0 +1,78 @@
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+  producto: [
+    { href: '/como-funciona', label: 'Cómo funciona' },
+    { href: '/precios', label: 'Precios' },
+    { href: '/demo', label: 'Agenda un demo' },
+    { href: '/blog', label: 'Blog' },
+  ],
+  soluciones: [
+    { href: '/para/condominios', label: 'Condominios' },
+    { href: '/para/academias', label: 'Academias' },
+    { href: '/para/medios-locales', label: 'Medios locales' },
+  ],
+  empresa: [
+    { href: '/nosotros', label: 'Nosotros' },
+    { href: '/contacto', label: 'Contacto' },
+    { href: '/privacidad', label: 'Privacidad' },
+    { href: '/terminos', label: 'Términos' },
+  ],
+};
+---
+
+<footer class="bg-dark text-gray-300">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Brand -->
+      <div>
+        <span class="text-2xl font-extrabold font-heading text-white">HeyJimmi</span>
+        <p class="mt-4 text-sm text-gray-400 leading-relaxed">
+          AI Studio que crea chatbots y asistentes digitales inteligentes para negocios en México.
+        </p>
+      </div>
+
+      <!-- Producto -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Producto</h3>
+        <ul class="space-y-3">
+          {footerLinks.producto.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Soluciones -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Soluciones</h3>
+        <ul class="space-y-3">
+          {footerLinks.soluciones.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Empresa -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Empresa</h3>
+        <ul class="space-y-3">
+          {footerLinks.empresa.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-gray-500">&copy; {currentYear} HeyJimmi. Todos los derechos reservados.</p>
+      <p class="text-sm text-gray-500">Hecho con IA en México</p>
+    </div>
+  </div>
+</footer>

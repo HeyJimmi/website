@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Agenda un Demo — HeyJimmi | Prueba Gratis"
+  description="Agenda una demostración personalizada de HeyJimmi y descubre cómo un asistente IA puede transformar la atención de tu negocio."
+>
+  <section class="pt-28 pb-20 sm:pt-36 bg-gradient-to-br from-primary-50 via-white to-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <!-- Left: Info -->
+        <div class="max-w-lg">
+          <h1 class="text-4xl sm:text-5xl font-extrabold font-heading text-dark mb-6">
+            Prueba <span class="text-primary-600">HeyJimmi</span> en acción
+          </h1>
+          <p class="text-lg text-gray-600 leading-relaxed mb-8">
+            Agenda una demo personalizada de 30 minutos. Te mostraremos cómo un asistente IA puede transformar la atención de tu negocio.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-dark">Demo en vivo</h3>
+                <p class="text-sm text-gray-600">Te mostramos un asistente real funcionando con un caso similar al tuyo.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-dark">Diagnóstico gratuito</h3>
+                <p class="text-sm text-gray-600">Analizamos tu situación actual y te damos recomendaciones específicas.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-dark">Sin compromiso</h3>
+                <p class="text-sm text-gray-600">30 minutos, sin presión, sin costo. Solo valor para tu negocio.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+          <h2 class="text-2xl font-bold text-dark mb-6">Agenda tu demo</h2>
+          <form class="space-y-5" action="#" method="POST">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
+              <input type="text" id="name" name="name" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition" placeholder="Tu nombre" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email empresarial</label>
+              <input type="email" id="email" name="email" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition" placeholder="tu@empresa.com" />
+            </div>
+            <div>
+              <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
+              <input type="text" id="company" name="company" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition" placeholder="Nombre de tu empresa" />
+            </div>
+            <div>
+              <label for="industry" class="block text-sm font-medium text-gray-700 mb-1">Industria</label>
+              <select id="industry" name="industry" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition bg-white">
+                <option value="">Selecciona tu industria</option>
+                <option value="condominios">Condominios / Administración</option>
+                <option value="academias">Academias / Escuelas</option>
+                <option value="medios">Medios de comunicación</option>
+                <option value="retail">Retail / Comercio</option>
+                <option value="servicios">Servicios profesionales</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">¿Qué te gustaría automatizar?</label>
+              <textarea id="message" name="message" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition resize-none" placeholder="Cuéntanos brevemente sobre tu necesidad..."></textarea>
+            </div>
+            <button type="submit" class="w-full rounded-lg bg-primary-600 px-6 py-3 text-sm font-semibold text-white hover:bg-primary-700 transition-colors">
+              Agendar demo gratuita
+            </button>
+            <p class="text-xs text-gray-500 text-center">
+              Al enviar, aceptas nuestra <a href="/privacidad" class="underline hover:text-primary-600">política de privacidad</a>.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
