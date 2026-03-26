@@ -1,0 +1,104 @@
+---
+const steps = [
+  {
+    num: '01',
+    title: 'Platicamos',
+    description: 'Una llamada de 30 minutos. Entendemos tu negocio, te mostramos lo que hemos construido, y te decimos honestamente si podemos ayudarte. Sin compromiso y sin venderte nada que no necesites.',
+  },
+  {
+    num: '02',
+    title: 'Proponemos',
+    description: 'Te mandamos una propuesta con alcance, tiempos y precio. Sin letra chica. Sin "más adelante te cobramos por esto". Lo que dice el documento es lo que pagas.',
+  },
+  {
+    num: '03',
+    title: 'Construimos',
+    description: 'Tu plataforma en cuatro semanas. Con actualizaciones reales durante el proceso — no silencio radiofónico y una sorpresa al final.',
+  },
+  {
+    num: '04',
+    title: 'Crecemos juntos',
+    description: '$2,500 al mes, IVA incluido. Soporte, mantenimiento y nuevas funciones conforme las necesitas. Sin contratos trampa y sin costos ocultos.',
+  },
+];
+---
+
+<div class="section" id="como-funciona">
+  <div class="section-header fade-in">
+    <p class="section-eyebrow">El proceso</p>
+    <h2>De cero a tu plataforma en 4 semanas.</h2>
+  </div>
+  <div class="steps">
+    {steps.map((step) => (
+      <div class="step fade-in">
+        <div class="step-num">{step.num}</div>
+        <h3>{step.title}</h3>
+        <p>{step.description}</p>
+      </div>
+    ))}
+  </div>
+  <div class="fade-in">
+    <a href="/demo" class="btn-primary steps-cta">Agenda tu llamada →</a>
+  </div>
+</div>
+
+<style>
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-bottom: 52px;
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.28;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .step-num::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-carbon);
+    opacity: 0.15;
+  }
+
+  .step h3 {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: 0.68;
+  }
+
+  .steps-cta {
+    font-size: 15px;
+    padding: 13px 28px;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 900px) {
+    .steps {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

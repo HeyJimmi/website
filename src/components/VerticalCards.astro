@@ -1,0 +1,110 @@
+---
+const verticals = [
+  {
+    num: '01',
+    title: 'Condominios y fraccionamientos',
+    description: 'Reservas de amenidades, directorio vecinal, comunicados push y mucho más. Para administradores que quieren dejar de depender de WhatsApp y grupos de chat para gestionar su fraccionamiento.',
+    href: '/para/condominios',
+  },
+  {
+    num: '02',
+    title: 'Academias y escuelas',
+    description: 'Membresías, cursos en línea, pagos integrados y CRM de alumnos. Para directores que quieren crecer su academia sin contratar más personal administrativo.',
+    href: '/para/academias',
+  },
+  {
+    num: '03',
+    title: 'Medios de comunicación locales',
+    description: 'CMS editorial, directorio de negocios, publicidad digital y analytics. Para directores que quieren un medio digital profesional — no un blog mal mantenido.',
+    href: '/para/medios-locales',
+  },
+  {
+    num: '04',
+    title: 'Empresas de servicio B2B',
+    description: 'CRM de clientes, seguimiento de cotizaciones, inventario y KPIs de ventas. Para dueños que quieren saber exactamente qué está pasando en su empresa — sin depender de llamadas ni hojas de cálculo.',
+    href: '/contacto',
+  },
+];
+---
+
+<div class="section">
+  <div class="section-header fade-in">
+    <p class="section-eyebrow">Para quién</p>
+    <h2>¿A qué tipo de negocio le hacemos plataformas?</h2>
+  </div>
+  <div class="cards">
+    {verticals.map((v) => (
+      <a href={v.href} class="card fade-in">
+        <div class="card-num">{v.num}</div>
+        <h3>{v.title}</h3>
+        <p>{v.description}</p>
+        <span class="card-link">Ver plataforma →</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    border: 1.5px solid rgba(28, 28, 30, 0.1);
+    border-radius: 12px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: border-color 0.2s, transform 0.2s;
+    background: var(--color-crema);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    border-color: var(--color-sol);
+    transform: translateY(-3px);
+  }
+
+  .card-num {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-sol);
+    letter-spacing: -2px;
+  }
+
+  .card h3 {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    line-height: 1.25;
+  }
+
+  .card p {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: 0.68;
+    flex: 1;
+  }
+
+  .card-link {
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  @media (max-width: 900px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

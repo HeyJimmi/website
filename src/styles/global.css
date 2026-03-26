@@ -1,56 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #EEF2FF;
-  --color-primary-100: #E0E7FF;
-  --color-primary-200: #C7D2FE;
-  --color-primary-300: #A5B4FC;
-  --color-primary-400: #818CF8;
-  --color-primary-500: #6366F1;
-  --color-primary-600: #4F46E5;
-  --color-primary-700: #4338CA;
-  --color-primary-800: #3730A3;
-  --color-primary-900: #312E81;
+  --color-crema: #FFF9F0;
+  --color-carbon: #1C1C1E;
+  --color-sol: #F7C132;
+  --color-guayaba: #FF5459;
+  --color-guayaba-dark: #e04046;
+  --color-aqua: #00B896;
 
-  --color-secondary-50: #F0FDF4;
-  --color-secondary-100: #DCFCE7;
-  --color-secondary-200: #BBF7D0;
-  --color-secondary-300: #86EFAC;
-  --color-secondary-400: #4ADE80;
-  --color-secondary-500: #22C55E;
-  --color-secondary-600: #16A34A;
-  --color-secondary-700: #15803D;
-  --color-secondary-800: #166534;
-  --color-secondary-900: #14532D;
-
-  --color-accent-50: #FFF7ED;
-  --color-accent-100: #FFEDD5;
-  --color-accent-200: #FED7AA;
-  --color-accent-300: #FDBA74;
-  --color-accent-400: #FB923C;
-  --color-accent-500: #F97316;
-  --color-accent-600: #EA580C;
-  --color-accent-700: #C2410C;
-  --color-accent-800: #9A3412;
-  --color-accent-900: #7C2D12;
-
-  --color-dark: #0F172A;
-  --color-dark-light: #1E293B;
-  --color-gray-light: #F8FAFC;
-
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
 }
 
 @layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
-    font-family: var(--font-sans);
-    color: var(--color-dark);
+    background: var(--color-crema);
+    color: var(--color-carbon);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+}
+
+/* Shared button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-guayaba);
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: var(--color-guayaba-dark);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: var(--color-carbon);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1.5px solid var(--color-carbon);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(28, 28, 30, 0.05);
+}
+
+/* Shared layout */
+.section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 88px 24px;
+}
+
+.section-narrow {
+  max-width: 800px;
+}
+
+.section-header {
+  margin-bottom: 52px;
+}
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-bottom: 14px;
+}
+
+.section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  max-width: 600px;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid rgba(28, 28, 30, 0.09);
+  margin: 0;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 64px 20px;
   }
 }

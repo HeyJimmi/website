@@ -1,0 +1,71 @@
+---
+const clients = [
+  { icon: 'L+', name: 'LO+ News' },
+  { icon: 'AL', name: 'Academia Latinoamericana Antienvejecimiento' },
+  { icon: 'TW', name: 'The Woods' },
+];
+---
+
+<div class="proof fade-in">
+  <p class="proof-label">Plataformas activas hoy mismo en Puebla</p>
+  <div class="proof-logos">
+    {clients.map((client) => (
+      <div class="proof-logo">
+        <div class="proof-icon">{client.icon}</div>
+        <span class="proof-name">{client.name}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .proof {
+    padding: 52px 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .proof-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .proof-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .proof-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.6;
+  }
+
+  .proof-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--color-carbon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-crema);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  .proof-name {
+    font-weight: 600;
+    font-size: 14px;
+  }
+</style>

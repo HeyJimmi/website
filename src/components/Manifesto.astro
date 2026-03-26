@@ -1,0 +1,193 @@
+<section class="manifesto-section fade-in">
+  <div class="paper-stack">
+    <div class="sheet sheet-back-2"></div>
+    <div class="sheet sheet-back-1"></div>
+    <div class="sheet sheet-front">
+      <div class="manifesto-body">
+        <p>Tu negocio no necesita más software del que puede usar.</p>
+        <p>
+          No necesita una suite de 300 módulos que te tardaste seis meses en
+          implementar y que nadie en tu equipo sabe usar. No necesita a una agencia
+          con 40 personas, presentaciones en PowerPoint de 90 diapositivas y una
+          cuenta de cobro que parece el PIB de un municipio.
+        </p>
+        <p>
+          Necesita <span class="highlight">exactamente lo que necesita</span>.
+          Ni más, ni menos.
+        </p>
+        <p>Eso es lo que hacemos.</p>
+        <p>
+          Construimos plataformas digitales a la medida para negocios como el
+          tuyo. Condominios, academias, medios locales, empresas que venden algo
+          real a personas reales. Trabajamos con foco, sin capas intermedias, y
+          con la obsesión de que las cosas funcionen desde el primer día.
+        </p>
+        <p>
+          Sin costo inicial. Sin sorpresas en la factura. Sin silencio
+          radiofónico mientras esperas saber cómo va tu proyecto.
+        </p>
+        <p>
+          Creemos que la tecnología no debería ser privilegio de las empresas
+          grandes. Que una PyME en Puebla merece las mismas herramientas que una
+          corporación en la Ciudad de México, sin pagar lo mismo que ellos.
+        </p>
+        <p>
+          No somos para todos. Si buscas cientos de funciones que quizás algún día
+          uses, hay muchas opciones por ahí. Pero si quieres algo que resuelva
+          <span class="highlight">tu problema específico</span>, que funcione desde
+          el primer día y que crezca contigo, aquí estamos.
+        </p>
+        <div class="signature-img" role="img" aria-label="Firma de Hec Sanchez"></div>
+        <div class="byline">
+          <img src="/hecsanchez.png" alt="Hec Sanchez" class="byline-photo" />
+          <div>
+            <p class="byline-name">Hec Sanchez</p>
+            <p class="byline-role">Socio fundador</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .manifesto-section {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 24px 24px 96px;
+  }
+
+  .paper-stack {
+    position: relative;
+    /* space for the rotated back sheets peeking out */
+    padding: 12px 8px 16px 12px;
+  }
+
+  /* shared sheet look */
+  .sheet {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow:
+      0 1px 3px rgba(28, 28, 30, 0.06),
+      0 4px 12px rgba(28, 28, 30, 0.04);
+  }
+
+  /* back sheetsstacked behind, progressively more rotated */
+  .sheet-back-2,
+  .sheet-back-1 {
+    position: absolute;
+    inset: 0;
+    transform-origin: 50% 100%;
+  }
+
+  /* far back sheetrotated well to the left */
+  .sheet-back-2 {
+    transform: rotate(-2deg);
+    background: #faf9f5;
+    box-shadow:
+      0 1px 2px rgba(28, 28, 30, 0.05),
+      0 2px 8px rgba(28, 28, 30, 0.03);
+  }
+
+  /* middle sheetstays to the right */
+  .sheet-back-1 {
+    transform: rotate(1deg);
+    background: #fcfbf8;
+    box-shadow:
+      0 1px 2px rgba(28, 28, 30, 0.06),
+      0 3px 10px rgba(28, 28, 30, 0.04);
+  }
+
+  /* front sheetbarely tilted left */
+  .sheet-front {
+    position: relative;
+    transform: rotate(-0.8deg);
+    transform-origin: 50% 100%;
+    padding: 48px 44px 52px;
+  }
+
+  .manifesto-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.38;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .manifesto-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--color-carbon);
+    opacity: 0.3;
+  }
+
+  .manifesto-body {
+    font-family: var(--font-display);
+    font-size: clamp(17px, 2.2vw, 20px);
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-carbon);
+  }
+
+  .manifesto-body p {
+    margin-bottom: 1.4em;
+  }
+
+  .highlight {
+    font-weight: 600;
+    background: linear-gradient(180deg, transparent 60%, rgba(247, 193, 50, 0.38) 60%);
+  }
+
+  .signature-img {
+    width: 320px;
+    height: 100px;
+    background: url('/signature.png') center / 600px no-repeat;
+    margin-bottom: 8px;
+  }
+
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .byline-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .byline-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    margin: 0 !important;
+    line-height: 1.2;
+  }
+
+  .byline-role {
+    font-size: 20px;
+    font-weight: 400;
+    opacity: 0.55;
+    margin: 0 !important;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 600px) {
+    .manifesto-section {
+      padding: 16px 16px 72px;
+    }
+
+    .sheet-front {
+      padding: 32px 24px 36px;
+    }
+  }
+</style>

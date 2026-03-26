@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = 'HeyJimmi — AI Studio que crea chatbots y asistentes digitales inteligentes para negocios en México.',
+  description = 'HeyJimmi — Software a la medida para negocios en México. Tu plataforma lista en 4 semanas, desde $2,500 MXN/mes.',
   ogImage = '/og-default.png',
 } = Astro.props;
 
@@ -40,20 +40,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <link rel="canonical" href={canonicalURL.href} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
 
     <title>{title}</title>
   </head>
-  <body class="bg-white text-dark antialiased">
+  <body>
     <Navbar />
     <main>
       <slot />
     </main>
     <Footer />
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+
+      document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

@@ -1,78 +1,202 @@
 ---
 const currentYear = new Date().getFullYear();
 
-const footerLinks = {
-  producto: [
-    { href: '/como-funciona', label: 'Cómo funciona' },
-    { href: '/precios', label: 'Precios' },
-    { href: '/demo', label: 'Agenda un demo' },
-    { href: '/blog', label: 'Blog' },
-  ],
-  soluciones: [
-    { href: '/para/condominios', label: 'Condominios' },
-    { href: '/para/academias', label: 'Academias' },
-    { href: '/para/medios-locales', label: 'Medios locales' },
-  ],
-  empresa: [
-    { href: '/nosotros', label: 'Nosotros' },
-    { href: '/contacto', label: 'Contacto' },
-    { href: '/privacidad', label: 'Privacidad' },
-    { href: '/terminos', label: 'Términos' },
-  ],
-};
+const columns = [
+  {
+    title: 'Para quién',
+    links: [
+      { href: '/para/condominios', label: 'Condominios' },
+      { href: '/para/academias', label: 'Academias' },
+      { href: '/para/medios-locales', label: 'Medios locales' },
+      { href: '/contacto', label: 'Empresas B2B' },
+    ],
+  },
+  {
+    title: 'Empresa',
+    links: [
+      { href: '/nosotros', label: 'Nosotros' },
+      { href: '/como-funciona', label: 'Cómo funciona' },
+      { href: '/precios', label: 'Precios' },
+      { href: '/contacto', label: 'Clientes' },
+    ],
+  },
+  {
+    title: 'Blog',
+    links: [
+      { href: '/blog', label: 'Todos los artículos' },
+      { href: '/blog', label: 'Para condominios' },
+      { href: '/blog', label: 'Para academias' },
+      { href: '/blog', label: 'Para empresas B2B' },
+    ],
+  },
+];
+
+const socials = [
+  { label: 'Ig', name: 'Instagram', href: '#' },
+  { label: 'Tk', name: 'TikTok', href: '#' },
+  { label: 'X', name: 'X', href: '#' },
+];
 ---
 
-<footer class="bg-dark text-gray-300">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-      <!-- Brand -->
-      <div>
-        <span class="text-2xl font-extrabold font-heading text-white">HeyJimmi</span>
-        <p class="mt-4 text-sm text-gray-400 leading-relaxed">
-          AI Studio que crea chatbots y asistentes digitales inteligentes para negocios en México.
-        </p>
-      </div>
-
-      <!-- Producto -->
-      <div>
-        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Producto</h3>
-        <ul class="space-y-3">
-          {footerLinks.producto.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Soluciones -->
-      <div>
-        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Soluciones</h3>
-        <ul class="space-y-3">
-          {footerLinks.soluciones.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Empresa -->
-      <div>
-        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Empresa</h3>
-        <ul class="space-y-3">
-          {footerLinks.empresa.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">{link.label}</a>
-            </li>
-          ))}
-        </ul>
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="/" class="footer-logo">Hey<span>Jimmi</span></a>
+      <p class="footer-tag">La app de tu negocio, sin complicaciones.</p>
+      <div class="footer-social">
+        {socials.map((s) => (
+          <a href={s.href} aria-label={s.name}>{s.label}</a>
+        ))}
       </div>
     </div>
-
-    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-sm text-gray-500">&copy; {currentYear} HeyJimmi. Todos los derechos reservados.</p>
-      <p class="text-sm text-gray-500">Hecho con IA en México</p>
+    {columns.map((col) => (
+      <div class="footer-col">
+        <h4>{col.title}</h4>
+        <ul>
+          {col.links.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; {currentYear} Orizaba Holdings LLC</span>
+    <div class="footer-legal">
+      <a href="/privacidad">Aviso de privacidad</a>
+      <a href="/terminos">Términos y condiciones</a>
     </div>
   </div>
 </footer>
+
+<style>
+  footer {
+    background: var(--color-carbon);
+    border-top: 1px solid rgba(255, 249, 240, 0.05);
+    color: var(--color-crema);
+    padding: 60px 24px 0;
+  }
+
+  .footer-grid {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 44px;
+    padding-bottom: 56px;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--color-crema);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .footer-logo span {
+    color: var(--color-sol);
+  }
+
+  .footer-tag {
+    font-size: 13px;
+    opacity: 0.45;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 10px;
+  }
+
+  .footer-social a {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 249, 240, 0.12);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-crema);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+  }
+
+  .footer-social a:hover {
+    opacity: 1;
+  }
+
+  .footer-col h4 {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.35;
+    margin-bottom: 18px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-col ul li a {
+    font-size: 13px;
+    color: var(--color-crema);
+    text-decoration: none;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+  }
+
+  .footer-col ul li a:hover {
+    opacity: 1;
+  }
+
+  .footer-bottom {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 18px 0;
+    border-top: 1px solid rgba(255, 249, 240, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .footer-bottom span,
+  .footer-bottom a {
+    font-size: 11px;
+    opacity: 0.3;
+    color: var(--color-crema);
+    text-decoration: none;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 18px;
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

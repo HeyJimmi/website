@@ -1,0 +1,105 @@
+---
+const faqData = [
+  {
+    q: '¿Qué pasa si quiero cancelar?',
+    a: 'El contrato mínimo es 24 meses. Si cancelas antes, no hay penalización económica — pero pierdes acceso a la plataforma, ya que el código y la infraestructura son de HeyJimmi. Tus datos siempre son tuyos: te los entregamos en el formato que necesites en cualquier momento.',
+  },
+  {
+    q: '¿Puedo pedir funciones específicas para mi negocio?',
+    a: 'Sí, ese es exactamente el punto. Cada plataforma se construye según lo que tu negocio necesita hoy. Si en el camino necesitas algo nuevo, lo platicamos y lo integramos. No estás comprando un producto de catálogo — estás contratando un equipo que construye lo que tú necesitas.',
+  },
+  {
+    q: '¿Cuánto tarda en estar lista mi plataforma?',
+    a: 'Cuatro semanas desde que firmamos. Sin excepciones. Si hay un retraso de nuestra parte, no te cobramos esas semanas. El plazo es nuestro compromiso, no una estimación optimista.',
+  },
+  {
+    q: '¿Necesito saber de tecnología para trabajar con ustedes?',
+    a: 'Para nada. Nosotros hablamos en tu idioma, no en el nuestro. Tu trabajo es describirnos qué necesita tu negocio; el nuestro es construirlo. Nunca te vamos a mandar un documento con siglas que no entiende nadie.',
+  },
+  {
+    q: '¿Solo trabajan en Puebla?',
+    a: 'No — trabajamos con negocios en toda la República Mexicana. Puebla es nuestra base, pero hemos entregado plataformas para clientes en otras ciudades y lo hacemos completamente en remoto.',
+  },
+];
+---
+
+<div class="section section-narrow">
+  <div class="section-header fade-in">
+    <p class="section-eyebrow">FAQ</p>
+    <h2>Preguntas que nos hacen seguido</h2>
+  </div>
+  <div class="faq-list fade-in">
+    {faqData.map((item) => (
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-text">{item.q}</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">{item.a}</div>
+      </details>
+    ))}
+  </div>
+</div>
+
+<style>
+  .faq-item {
+    border-top: 1px solid rgba(28, 28, 30, 0.1);
+  }
+
+  .faq-item:last-child {
+    border-bottom: 1px solid rgba(28, 28, 30, 0.1);
+  }
+
+  .faq-question {
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+    padding: 22px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-text {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-carbon);
+    letter-spacing: -0.2px;
+  }
+
+  .faq-icon {
+    width: 26px;
+    height: 26px;
+    border: 1.5px solid rgba(28, 28, 30, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--color-carbon);
+    transition: transform 0.3s, background 0.2s, border-color 0.2s;
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+    background: var(--color-sol);
+    border-color: var(--color-sol);
+  }
+
+  .faq-answer {
+    padding-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.75;
+    opacity: 0.68;
+    max-width: 680px;
+  }
+</style>
