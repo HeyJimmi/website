@@ -4,63 +4,59 @@ import CTASection from '../components/CTASection.astro';
 
 const plans = [
   {
-    name: 'Starter',
-    price: '$4,999',
+    name: 'Plataforma',
+    price: '$2,500',
     period: '/mes',
-    description: 'Ideal para negocios que están comenzando con atención automatizada.',
+    description: 'Tu plataforma a la medida, lista en 4 semanas. Todo incluido.',
     features: [
-      '1 asistente IA',
-      '1 canal (WhatsApp o web)',
-      'Hasta 500 conversaciones/mes',
-      'Base de conocimiento básica',
-      'Reportes mensuales',
-      'Soporte por email',
+      'Plataforma personalizada',
+      'Hosting incluido',
+      'Mantenimiento continuo',
+      'Soporte directo',
+      'Nuevas funciones',
+      'Sin costo de inicio',
     ],
-    cta: 'Comenzar',
-    highlighted: false,
-  },
-  {
-    name: 'Pro',
-    price: '$9,999',
-    period: '/mes',
-    description: 'Para negocios que necesitan atención multicanal y más capacidad.',
-    features: [
-      'Hasta 3 asistentes IA',
-      'Multicanal (WhatsApp, web, redes)',
-      'Hasta 2,000 conversaciones/mes',
-      'Base de conocimiento avanzada',
-      'Reportes semanales',
-      'Escalamiento a humanos',
-      'Integraciones con CRM',
-      'Soporte prioritario',
-    ],
-    cta: 'Comenzar',
+    cta: 'Agenda tu demo',
     highlighted: true,
   },
   {
-    name: 'Enterprise',
+    name: 'Plataforma + IA',
+    price: '$3,500',
+    period: '/mes',
+    description: 'Todo lo anterior más módulo de inteligencia artificial integrado.',
+    features: [
+      'Todo lo del plan Plataforma',
+      'Generación de propuestas',
+      'Transcripción de voz',
+      'Respuestas inteligentes',
+      'Resúmenes automáticos',
+      'Integrado a tu plataforma',
+    ],
+    cta: 'Agenda tu demo',
+    highlighted: false,
+  },
+  {
+    name: 'A la medida',
     price: 'Personalizado',
     period: '',
-    description: 'Para organizaciones con necesidades avanzadas y alto volumen.',
+    description: 'Para negocios con necesidades más complejas o integraciones especiales.',
     features: [
-      'Asistentes ilimitados',
-      'Todos los canales',
-      'Conversaciones ilimitadas',
-      'IA personalizada y fine-tuning',
+      'Todo lo anterior',
+      'Integraciones a medida',
+      'Múltiples plataformas',
       'API y webhooks',
       'SLA garantizado',
-      'Account manager dedicado',
-      'Onboarding personalizado',
+      'Soporte dedicado',
     ],
-    cta: 'Contactar ventas',
+    cta: 'Platiquemos',
     highlighted: false,
   },
 ];
 ---
 
 <Layout
-  title="Precios — HeyJimmi | Planes de Chatbots IA"
-  description="Conoce los planes y precios de HeyJimmi. Chatbots IA para negocios en México desde $4,999 MXN al mes."
+  title="Precios — HeyJimmi | Software a la medida desde $2,500/mes"
+  description="Conoce los planes y precios de HeyJimmi. Plataformas digitales a la medida para PyMEs en México desde $2,500 MXN al mes."
 >
   <section class="pt-28 pb-16 sm:pt-36 bg-gradient-to-br from-primary-50 via-white to-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -121,7 +117,7 @@ const plans = [
 
       <div class="mt-16 text-center">
         <p class="text-gray-500 text-sm">
-          Todos los precios son en pesos mexicanos (MXN) + IVA. Incluyen setup inicial sin costo adicional.
+          Todos los precios son en pesos mexicanos (MXN), IVA incluido. Contrato mínimo 24 meses. Sin costo de inicio.
         </p>
       </div>
     </div>
@@ -134,15 +130,15 @@ const plans = [
       <div class="space-y-6">
         <div class="bg-white rounded-xl p-6 border border-gray-100">
           <h3 class="font-bold text-dark mb-2">¿Hay algún costo de setup?</h3>
-          <p class="text-gray-600 text-sm">No. El setup inicial, la configuración del asistente y el entrenamiento están incluidos en todos los planes.</p>
+          <p class="text-gray-600 text-sm">No. El diseño, la construcción y la puesta en marcha de tu plataforma están incluidos. Empiezas a pagar cuando ya funciona.</p>
         </div>
         <div class="bg-white rounded-xl p-6 border border-gray-100">
           <h3 class="font-bold text-dark mb-2">¿Puedo cambiar de plan?</h3>
           <p class="text-gray-600 text-sm">Sí, puedes escalar o cambiar de plan en cualquier momento. Los cambios se aplican en tu siguiente ciclo de facturación.</p>
         </div>
         <div class="bg-white rounded-xl p-6 border border-gray-100">
-          <h3 class="font-bold text-dark mb-2">¿Qué pasa si supero el límite de conversaciones?</h3>
-          <p class="text-gray-600 text-sm">Tu asistente sigue funcionando. Te notificamos y puedes escalar tu plan o pagar solo el excedente.</p>
+          <h3 class="font-bold text-dark mb-2">¿Qué incluye el mantenimiento?</h3>
+          <p class="text-gray-600 text-sm">Hosting, actualizaciones, corrección de errores y soporte directo. Si necesitas nuevas funciones, las construimos sin costo adicional dentro de tu plan.</p>
         </div>
         <div class="bg-white rounded-xl p-6 border border-gray-100">
           <h3 class="font-bold text-dark mb-2">¿Hay compromiso de permanencia?</h3>
