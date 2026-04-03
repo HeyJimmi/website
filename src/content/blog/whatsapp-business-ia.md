@@ -1,9 +1,10 @@
 ---
 title: "Cómo potenciar WhatsApp Business con inteligencia artificial"
 description: "Aprende a usar IA para automatizar y mejorar la atención al cliente en WhatsApp Business. Estrategias prácticas para negocios en México."
-date: 2025-02-10
+publishDate: 2025-02-10
+pillar: tecnologia-pymes
 author: "HeyJimmi"
-tags: ["WhatsApp", "IA", "automatización", "negocios"]
+draft: false
 ---
 
 ## WhatsApp Business + IA: la combinación ganadora

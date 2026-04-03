@@ -1,9 +1,10 @@
 ---
 title: "Chatbots para atención al cliente en México: guía completa 2025"
 description: "Descubre cómo los chatbots con IA están transformando la atención al cliente en negocios mexicanos. Beneficios, casos de uso y mejores prácticas."
-date: 2025-01-15
+publishDate: 2025-01-15
+pillar: tecnologia-pymes
 author: "HeyJimmi"
-tags: ["chatbots", "atención al cliente", "México", "IA"]
+draft: false
 ---
 
 ## ¿Por qué los chatbots son el futuro de la atención al cliente en México?

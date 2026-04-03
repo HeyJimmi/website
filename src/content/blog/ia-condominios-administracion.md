@@ -1,9 +1,10 @@
 ---
 title: "IA para condominios: automatiza la administración de tu conjunto residencial"
 description: "Descubre cómo la inteligencia artificial puede revolucionar la administración de condominios en México. Casos de uso y beneficios reales."
-date: 2025-03-05
+publishDate: 2025-03-05
+pillar: condominios
 author: "HeyJimmi"
-tags: ["condominios", "administración", "IA", "automatización"]
+draft: false
 ---
 
 ## La administración de condominios tiene un problema de comunicación

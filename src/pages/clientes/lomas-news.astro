@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const features = [
+  'Noticias y comunicados del fraccionamiento',
+  'Reservas de amenidades en tiempo real',
+  'Directorio vecinal',
+  'Notificaciones push a todos los residentes',
+  'Módulo SOS para emergencias',
+  'Directorio de negocios locales',
+  'Marketplace vecinal',
+];
+---
+
+<Layout
+  title="LO+ News — Caso de éxito | HeyJimmi"
+  description="Cómo Lomas de Angelópolis conectó a 75,000 vecinos con una sola plataforma digital construida por HeyJimmi."
+>
+  <section class="pt-28 pb-16 sm:pt-36 bg-gradient-to-br from-primary-50 via-white to-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <a href="/clientes" class="inline-flex items-center text-sm text-primary-600 hover:text-primary-700 mb-8 transition-colors">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+          Volver a clientes
+        </a>
+        <div class="inline-flex items-center rounded-full bg-primary-100 px-4 py-1.5 text-sm font-medium text-primary-700 mb-6">
+          Condominios
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-dark mb-6 leading-tight">
+          Cómo Lomas de Angelópolis conectó a 75,000 vecinos con una sola plataforma.
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <p>
+          Lomas de Angelópolis es uno de los fraccionamientos más grandes de Puebla.
+          Más de 24,500 hogares. 150+ clusters. Entre 75,000 y 100,000 residentes.
+        </p>
+        <p>
+          La administración gestionaba todo por WhatsApp, grupos de Facebook y
+          correos electrónicos que nadie leía. Los comunicados urgentes se perdían
+          entre memes. Las reservas de amenidades eran un caos de mensajes directos.
+        </p>
+        <p>
+          Construimos <strong>LO+ News</strong> — la plataforma digital de Lomas de Angelópolis.
+        </p>
+
+        <h2>Qué incluye</h2>
+        <ul>
+          {features.map((feature) => (
+            <li>{feature}</li>
+          ))}
+        </ul>
+
+        <p>
+          La plataforma es accesible en lomasnews.mx y como Progressive Web App
+          en iOS y Android.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿Tu fraccionamiento necesita algo similar?"
+    subtitle="Platícanos tu proyecto. Te mostramos cómo podemos ayudarte."
+    buttonText="Agenda una demo →"
+    buttonHref="/demo"
+  />
+</Layout>

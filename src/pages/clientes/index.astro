@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const cases = [
+  {
+    title: 'LO+ News',
+    description: 'La plataforma digital de Lomas de Angelópolis que conectó a 75,000 vecinos.',
+    href: '/clientes/lomas-news',
+    tag: 'Condominios',
+  },
+  {
+    title: 'Academia Latinoamericana Antienvejecimiento',
+    description: 'Plataforma de membresías y cursos en línea para profesionales de la salud.',
+    href: '/clientes/academia-latinoamericana',
+    tag: 'Academias',
+  },
+];
+---
+
+<Layout
+  title="Clientes — HeyJimmi"
+  description="Casos de éxito de HeyJimmi. Plataformas activas para condominios, academias y medios locales en México."
+>
+  <section class="pt-28 pb-16 sm:pt-36 bg-gradient-to-br from-primary-50 via-white to-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl font-extrabold font-heading text-dark mb-6">
+          Plataformas reales.<br />Resultados reales.
+        </h1>
+        <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+          No somos una agencia que muestra mockups. Estos son negocios activos
+          usando las plataformas que construimos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {cases.map((item) => (
+          <a href={item.href} class="group block rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg hover:border-primary-200 transition-all duration-300">
+            <div class="h-48 bg-gradient-to-br from-primary-100 to-primary-50 flex items-center justify-center">
+              <svg class="w-16 h-16 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="inline-flex items-center rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-medium text-primary-700">
+                  {item.tag}
+                </span>
+              </div>
+              <h2 class="text-xl font-bold text-dark mb-2 group-hover:text-primary-600 transition-colors">
+                {item.title}
+              </h2>
+              <p class="text-sm text-gray-600">{item.description}</p>
+              <span class="inline-flex items-center mt-4 text-sm font-medium text-primary-600 group-hover:gap-2 transition-all">
+                Ver caso de éxito
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿Quieres que tu negocio tenga su propia plataforma?"
+    subtitle="Platícanos tu proyecto. La primera llamada es gratis."
+  />
+</Layout>
