@@ -1,9 +1,8 @@
 ---
 const navLinks = [
-  { href: '/nosotros', label: 'Nosotros' },
-  { href: '/como-funciona', label: 'Cómo funciona' },
-  { href: '/precios', label: 'Precios' },
-  { href: '/blog', label: 'Blog' },
+  { href: '#como-funciona', label: 'Cómo funciona' },
+  { href: '#precios', label: 'Precios' },
+  { href: '#faq', label: 'FAQ' },
 ];
 ---
 
@@ -15,14 +14,14 @@ const navLinks = [
         <li><a href={link.href}>{link.label}</a></li>
       ))}
     </ul>
-    <a href="/demo" class="btn-primary nav-cta">Agenda tu demo</a>
+    <a href="#contacto" class="btn-primary nav-cta">Contáctanos</a>
     <button id="mobile-menu-btn" class="nav-hamburger" aria-label="Abrir menú">☰</button>
   </div>
   <div id="mobile-menu" class="nav-mobile" hidden>
     {navLinks.map((link) => (
       <a href={link.href}>{link.label}</a>
     ))}
-    <a href="/demo" class="btn-primary nav-mobile-cta">Agenda tu demo</a>
+    <a href="#contacto" class="btn-primary nav-mobile-cta">Contáctanos</a>
   </div>
 </nav>
 
