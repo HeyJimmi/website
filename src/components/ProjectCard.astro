@@ -43,7 +43,7 @@ const heroImage = project.hero ?? project.gallery[0];
 ---
 
 <article class={`project-card project-card--${variant} fade-in`}>
-  <div class="project-visual" aria-hidden="true">
+  <div class:list={["project-visual", heroImage?.src && "project-visual--image"]} aria-hidden="true">
     {heroImage?.src ? (
       <img src={heroImage.src} alt="" loading="lazy" />
     ) : (
@@ -103,15 +103,20 @@ const heroImage = project.hero ?? project.gallery[0];
 
   .project-visual {
     aspect-ratio: 16 / 9;
-    background: rgba(28, 28, 30, 0.04);
+    background: rgba(28, 28, 30, 0.05);
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid rgba(28, 28, 30, 0.06);
+  }
+
+  .project-visual--image {
+    padding: 12px;
   }
 
   .project-visual img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 

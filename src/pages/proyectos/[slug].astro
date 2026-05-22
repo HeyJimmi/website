@@ -118,7 +118,10 @@ const meta = [
     </section>
 
     <section class="detail-hero-image">
-      <figure class="hero-figure" style={`background: ${accent.bg}; color: ${accent.ink};`}>
+      <figure
+        class:list={["hero-figure", heroImage?.src && "hero-figure--image"]}
+        style={heroImage?.src ? undefined : `background: ${accent.bg}; color: ${accent.ink};`}
+      >
         {heroImage?.src ? (
           <img src={heroImage.src} alt={heroImage.alt} />
         ) : (
@@ -161,7 +164,7 @@ const meta = [
           </div>
           <div class="gallery">
             {galleryItems.map(({ img, full }) => (
-              <figure class:list={['gallery-item', `gallery-item--${img.aspect ?? 'wide'}`, full && 'gallery-item--full']}>
+              <figure class:list={['gallery-item', `gallery-item--${img.aspect ?? 'wide'}`, full && 'gallery-item--full', img.src && 'gallery-item--image']}>
                 {img.src ? (
                   <img src={img.src} alt={img.alt} loading="lazy" />
                 ) : (
@@ -411,10 +414,22 @@ const meta = [
     pointer-events: none;
   }
 
+  /* When a real screenshot is provided, replace the brand-color gradient frame
+     with a neutral frame so the screenshot reads cleanly. */
+  .hero-figure--image {
+    background: #ffffff;
+    border: 1.5px solid rgba(28, 28, 30, 0.08);
+    padding: clamp(16px, 2.2vw, 28px);
+  }
+
+  .hero-figure--image::after {
+    display: none;
+  }
+
   .hero-figure img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
@@ -531,9 +546,14 @@ const meta = [
     border-radius: 14px;
     overflow: hidden;
     margin: 0;
-    background: rgba(28, 28, 30, 0.04);
+    background: #ffffff;
     border: 1.5px solid rgba(28, 28, 30, 0.08);
     aspect-ratio: 16 / 10;
+  }
+
+  /* Inset screenshot images so they read as framed shots, not edge-to-edge crops. */
+  .gallery-item--image {
+    padding: clamp(8px, 1vw, 12px);
   }
 
   .gallery-item--portrait {
@@ -552,7 +572,7 @@ const meta = [
   .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
@@ -616,6 +636,12 @@ const meta = [
 
   .gallery-item:hover figcaption {
     opacity: 1;
+  }
+
+  /* On framed screenshots, the dark gradient caption sits over white space and reads
+     as a stray bar. The screenshot speaks for itself; suppress the overlay caption. */
+  .gallery-item--image figcaption {
+    display: none;
   }
 
   /* Features */
