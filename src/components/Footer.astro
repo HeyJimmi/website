@@ -1,49 +1,118 @@
 ---
+type FooterLink = { href: string; label: string; external?: boolean };
+type FooterColumn = { title: string; links: FooterLink[] };
+
 const currentYear = new Date().getFullYear();
 
-const columns = [
+const columns: FooterColumn[] = [
   {
-    title: 'Navegación',
+    title: 'Producto',
     links: [
-      { href: '#como-funciona', label: 'Cómo funciona' },
-      { href: '#precios', label: 'Precios' },
-      { href: '#faq', label: 'FAQ' },
-      { href: '#contacto', label: 'Contacto' },
+      { href: '/#como-funciona', label: 'Cómo funciona' },
+      { href: '/proyectos', label: 'Proyectos' },
+      { href: '/#precios', label: 'Precios' },
+      { href: '/#faq', label: 'FAQ' },
+    ],
+  },
+  {
+    title: 'Compañía',
+    links: [
+      { href: '/#manifiesto', label: 'Manifiesto' },
+      { href: '/clientes', label: 'Clientes' },
+      { href: '/blog', label: 'Blog' },
+    ],
+  },
+  {
+    title: 'Contacto',
+    links: [
+      { href: 'mailto:hola@heyjimmi.com', label: 'hola@heyjimmi.com' },
+      { href: 'https://wa.me/5212205421768', label: 'WhatsApp · +52 220 542 1768', external: true },
+      { href: '/#contacto', label: 'Agenda una llamada' },
     ],
   },
 ];
 
 const socials = [
-  { label: 'Ig', name: 'Instagram', href: '#' },
-  { label: 'Tk', name: 'TikTok', href: '#' },
-  { label: 'X', name: 'X', href: '#' },
+  {
+    name: 'Instagram',
+    href: '#',
+    svg: '<path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.336 3.608 1.311.975.975 1.249 2.242 1.311 3.608.058 1.266.069 1.646.069 4.85s-.011 3.584-.069 4.85c-.062 1.366-.336 2.633-1.311 3.608-.975.975-2.242 1.249-3.608 1.311-1.266.058-1.646.069-4.85.069s-3.584-.011-4.85-.069c-1.366-.062-2.633-.336-3.608-1.311-.975-.975-1.249-2.242-1.311-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.336-2.633 1.311-3.608.975-.975 2.242-1.249 3.608-1.311 1.266-.058 1.646-.069 4.85-.069zm0 1.838c-3.142 0-3.515.012-4.756.069-.951.043-1.466.2-1.81.343-.456.176-.78.387-1.122.729-.342.342-.553.666-.729 1.122-.143.344-.3.859-.343 1.81-.057 1.241-.069 1.614-.069 4.756 0 3.142.012 3.515.069 4.756.043.951.2 1.466.343 1.81.176.456.387.78.729 1.122.342.342.666.553 1.122.729.344.143.859.3 1.81.343 1.241.057 1.614.069 4.756.069 3.142 0 3.515-.012 4.756-.069.951-.043 1.466-.2 1.81-.343.456-.176.78-.387 1.122-.729.342-.342.553-.666.729-1.122.143-.344.3-.859.343-1.81.057-1.241.069-1.614.069-4.756 0-3.142-.012-3.515-.069-4.756-.043-.951-.2-1.466-.343-1.81-.176-.456-.387-.78-.729-1.122-.342-.342-.666-.553-1.122-.729-.344-.143-.859-.3-1.81-.343C15.515 4.013 15.142 4 12 4zm0 3.378a4.622 4.622 0 110 9.244 4.622 4.622 0 010-9.244zm0 7.622a3 3 0 100-6 3 3 0 000 6zm5.881-7.802a1.08 1.08 0 11-2.16 0 1.08 1.08 0 012.16 0z"/>',
+  },
+  {
+    name: 'TikTok',
+    href: '#',
+    svg: '<path d="M19.589 6.686a4.793 4.793 0 01-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 01-5.201 1.743 2.895 2.895 0 011.658-5.166V8.84a6.422 6.422 0 00-5.428 9.842 6.42 6.42 0 0011.062-4.376V8.687a8.182 8.182 0 004.773 1.526V6.79a4.831 4.831 0 01-1.649-.104z"/>',
+  },
+  {
+    name: 'X',
+    href: '#',
+    svg: '<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>',
+  },
 ];
 ---
 
-<footer>
+<footer class="footer">
+  <div class="footer-eyebrow">
+    <span>HeyJimmi</span>
+    <span class="footer-eyebrow-sep">·</span>
+    <span>Puebla, México</span>
+    <span class="footer-eyebrow-sep">·</span>
+    <span>hola@heyjimmi.com</span>
+    <span class="footer-eyebrow-sep footer-eyebrow-sep--last">·</span>
+    <span class="footer-eyebrow-tag">Respondemos en &lt; 24 h</span>
+  </div>
+
   <div class="footer-grid">
-    <div>
-      <a href="/" class="footer-logo">Hey<span>Jimmi</span></a>
-      <p class="footer-tag">La app de tu negocio, sin complicaciones.</p>
-      <div class="footer-social">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo" aria-label="HeyJimmi — Inicio">
+        Hey<span>Jimmi</span>
+      </a>
+      <p class="footer-tag">
+        Software a la medida para PyMEs en México.<br />
+        Tu plataforma lista en 4 semanas, sin costo inicial.
+      </p>
+      <div class="footer-social" aria-label="Redes sociales">
         {socials.map((s) => (
-          <a href={s.href} aria-label={s.name}>{s.label}</a>
+          <a href={s.href} class="footer-social-link" aria-label={s.name} target="_blank" rel="noopener">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              set:html={s.svg}
+            />
+          </a>
         ))}
       </div>
     </div>
+
     {columns.map((col) => (
-      <div class="footer-col">
+      <nav class="footer-col" aria-label={col.title}>
         <h4>{col.title}</h4>
         <ul>
           {col.links.map((link) => (
-            <li><a href={link.href}>{link.label}</a></li>
+            <li>
+              <a
+                href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener' : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
           ))}
         </ul>
-      </div>
+      </nav>
     ))}
   </div>
+
   <div class="footer-bottom">
-    <span>&copy; {currentYear} HeyJimmi</span>
+    <div class="footer-bottom-left">
+      <span>&copy; {currentYear} HeyJimmi</span>
+      <span class="footer-dot" aria-hidden="true">·</span>
+      <span>Hecho con cuidado en Puebla, México</span>
+    </div>
     <div class="footer-legal">
       <a href="/privacidad">Aviso de privacidad</a>
       <a href="/terminos">Términos y condiciones</a>
@@ -52,133 +121,258 @@ const socials = [
 </footer>
 
 <style>
-  footer {
+  .footer {
     background: var(--color-carbon);
-    border-top: 1px solid rgba(255, 249, 240, 0.05);
     color: var(--color-crema);
-    padding: 60px 24px 0;
+    border-top: 1px solid rgba(255, 249, 240, 0.06);
   }
 
+  /* Top eyebrow strip */
+  .footer-eyebrow {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(255, 249, 240, 0.06);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+
+  .footer-eyebrow-sep {
+    opacity: 0.5;
+  }
+
+  .footer-eyebrow-tag {
+    color: var(--color-sol);
+    opacity: 1;
+  }
+
+  /* Main grid */
   .footer-grid {
     max-width: 1120px;
     margin: 0 auto;
+    padding: 72px 24px 56px;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 44px;
-    padding-bottom: 56px;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .footer-brand {
+    max-width: 340px;
   }
 
   .footer-logo {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 20px;
+    font-size: 40px;
+    letter-spacing: -1.2px;
     color: var(--color-crema);
     text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
+    display: inline-block;
+    line-height: 1;
+    margin-bottom: 22px;
   }
 
   .footer-logo span {
     color: var(--color-sol);
+    font-style: italic;
+    font-weight: 400;
   }
 
   .footer-tag {
-    font-size: 13px;
-    opacity: 0.45;
-    line-height: 1.6;
-    margin-bottom: 22px;
+    font-size: 14px;
+    line-height: 1.65;
+    opacity: 0.6;
+    margin: 0 0 28px;
   }
 
+  /* Socials */
   .footer-social {
     display: flex;
-    gap: 10px;
+    gap: 8px;
   }
 
-  .footer-social a {
-    width: 30px;
-    height: 30px;
-    border: 1px solid rgba(255, 249, 240, 0.12);
-    border-radius: 6px;
+  .footer-social-link {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 249, 240, 0.14);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-crema);
     text-decoration: none;
-    font-size: 11px;
-    font-weight: 600;
-    opacity: 0.55;
-    transition: opacity 0.2s;
+    opacity: 0.7;
+    transition: opacity 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
   }
 
-  .footer-social a:hover {
+  .footer-social-link:hover {
     opacity: 1;
+    border-color: var(--color-sol);
+    color: var(--color-sol);
+    transform: translateY(-1px);
   }
 
+  /* Nav columns */
   .footer-col h4 {
     font-family: var(--font-mono);
-    font-size: 9px;
-    letter-spacing: 0.15em;
+    font-size: 10px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    opacity: 0.35;
-    margin-bottom: 18px;
+    opacity: 0.45;
+    margin: 0 0 22px;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 24px;
+    height: 1px;
+    background: var(--color-sol);
+    opacity: 0.6;
   }
 
   .footer-col ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 11px;
     padding: 0;
     margin: 0;
   }
 
   .footer-col ul li a {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--color-crema);
     text-decoration: none;
-    opacity: 0.55;
-    transition: opacity 0.2s;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+    line-height: 1.5;
   }
 
   .footer-col ul li a:hover {
     opacity: 1;
+    color: var(--color-sol);
   }
 
+  /* Bottom bar */
   .footer-bottom {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 18px 0;
+    padding: 20px 24px 22px;
     border-top: 1px solid rgba(255, 249, 240, 0.06);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
   }
 
-  .footer-bottom span,
-  .footer-bottom a {
-    font-size: 11px;
-    opacity: 0.3;
+  .footer-bottom-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom-left span,
+  .footer-legal a {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--color-crema);
+    opacity: 0.4;
     text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .footer-legal a:hover {
+    opacity: 0.85;
   }
 
   .footer-legal {
     display: flex;
-    gap: 18px;
+    gap: 22px;
+    flex-wrap: wrap;
   }
 
+  .footer-dot {
+    opacity: 0.3 !important;
+  }
+
+  /* Responsive */
   @media (max-width: 900px) {
     .footer-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 36px;
+      gap: 44px 32px;
+      padding: 56px 24px 44px;
+    }
+
+    .footer-brand {
+      grid-column: 1 / -1;
+      max-width: 480px;
+    }
+
+    .footer-logo {
+      font-size: 36px;
     }
   }
 
   @media (max-width: 600px) {
+    .footer-eyebrow {
+      padding: 14px 20px;
+      gap: 8px;
+      font-size: 9px;
+    }
+
+    .footer-eyebrow-sep--last {
+      display: none;
+    }
+
+    .footer-eyebrow-tag {
+      flex-basis: 100%;
+    }
+
     .footer-grid {
       grid-template-columns: 1fr;
+      gap: 36px;
+      padding: 48px 20px 36px;
+    }
+
+    .footer-brand {
+      max-width: 100%;
+    }
+
+    .footer-logo {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .footer-tag {
+      margin-bottom: 22px;
+    }
+
+    .footer-bottom {
+      padding: 18px 20px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .footer-legal {
+      gap: 16px;
     }
   }
 </style>

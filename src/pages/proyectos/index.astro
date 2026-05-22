@@ -1,0 +1,238 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { projects } from '../../data/projects';
+
+const categories = ['Todos', ...Array.from(new Set(projects.map((p) => p.category)))];
+
+const stats = [
+  { value: projects.length.toString().padStart(2, '0'), label: 'Proyectos entregados' },
+  { value: '4', label: 'Semanas por proyecto' },
+  { value: '24/7', label: 'Soporte directo' },
+];
+---
+
+<Layout
+  title="Proyectos — HeyJimmi"
+  description="Plataformas y sitios que hemos construido para PyMEs, academias, condominios y medios locales en México. Proyectos reales, en producción."
+>
+  <section class="proyectos-hero">
+    <div class="proyectos-hero-inner">
+      <p class="section-eyebrow">Proyectos</p>
+      <h1>Proyectos reales,<br /><em>negocios reales.</em></h1>
+      <p class="proyectos-hero-sub">
+        No son mockups ni demos enlatados. Cada uno de estos proyectos está
+        en producción, atendiendo clientes y resolviendo problemas concretos.
+      </p>
+      <div class="proyectos-stats">
+        {stats.map((stat) => (
+          <div class="proyectos-stat">
+            <div class="proyectos-stat-value">{stat.value}</div>
+            <div class="proyectos-stat-label">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <div class="section">
+    <div class="section-header proyectos-section-header fade-in">
+      <div>
+        <p class="section-eyebrow">El portafolio</p>
+        <h2>Lo que hemos construido.</h2>
+      </div>
+      <div class="proyectos-filters" role="tablist" aria-label="Filtrar proyectos por categoría">
+        {categories.map((cat, i) => (
+          <button
+            class:list={['proyectos-filter', i === 0 && 'is-active']}
+            data-filter={cat}
+            type="button"
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="proyectos-grid" id="proyectos-grid">
+      {projects.map((project) => (
+        <div class="proyectos-grid-item" data-category={project.category}>
+          <ProjectCard project={project} variant="full" />
+        </div>
+      ))}
+    </div>
+
+    <p class="proyectos-empty" id="proyectos-empty" hidden>
+      No hay proyectos en esta categoría todavía.
+    </p>
+  </div>
+
+  <FinalCta />
+</Layout>
+
+<script>
+  const filters = document.querySelectorAll<HTMLButtonElement>('.proyectos-filter');
+  const items = document.querySelectorAll<HTMLElement>('.proyectos-grid-item');
+  const empty = document.getElementById('proyectos-empty');
+
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.filter;
+
+      filters.forEach((f) => {
+        f.classList.toggle('is-active', f === btn);
+        f.setAttribute('aria-selected', f === btn ? 'true' : 'false');
+      });
+
+      let visible = 0;
+      items.forEach((item) => {
+        const match = target === 'Todos' || item.dataset.category === target;
+        item.hidden = !match;
+        if (match) visible += 1;
+      });
+
+      if (empty) empty.hidden = visible !== 0;
+    });
+  });
+</script>
+
+<style>
+  .proyectos-hero {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 88px 24px 72px;
+  }
+
+  .proyectos-hero-inner {
+    max-width: 760px;
+  }
+
+  .proyectos-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    color: var(--color-carbon);
+    margin: 14px 0 22px;
+  }
+
+  .proyectos-hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .proyectos-hero-sub {
+    font-size: 18px;
+    line-height: 1.65;
+    opacity: 0.72;
+    max-width: 560px;
+    margin: 0 0 44px;
+  }
+
+  .proyectos-stats {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    gap: 56px;
+    align-items: end;
+  }
+
+  .proyectos-stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1;
+    color: var(--color-carbon);
+  }
+
+  .proyectos-stat-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-top: 8px;
+  }
+
+  .proyectos-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .proyectos-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .proyectos-filter {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(28, 28, 30, 0.12);
+    background: transparent;
+    color: var(--color-carbon);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+
+  .proyectos-filter:hover {
+    border-color: rgba(28, 28, 30, 0.35);
+  }
+
+  .proyectos-filter.is-active {
+    background: var(--color-carbon);
+    color: var(--color-crema);
+    border-color: var(--color-carbon);
+  }
+
+  .proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .proyectos-grid-item[hidden] {
+    display: none;
+  }
+
+  .proyectos-empty {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.6;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 900px) {
+    .proyectos-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .proyectos-stats {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .proyectos-hero {
+      padding: 64px 20px 56px;
+    }
+
+    .proyectos-stats {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 32px;
+    }
+  }
+</style>

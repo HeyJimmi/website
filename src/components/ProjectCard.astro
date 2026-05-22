@@ -1,0 +1,280 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+  variant?: 'preview' | 'full';
+}
+
+const { project, variant = 'preview' } = Astro.props;
+
+const accentMap: Record<Project['accent'], { bg: string; ink: string; chipBg: string; chipInk: string }> = {
+  sol: {
+    bg: 'linear-gradient(135deg, #FFE8A8 0%, #F7C132 100%)',
+    ink: '#1C1C1E',
+    chipBg: 'rgba(247, 193, 50, 0.18)',
+    chipInk: '#8a6a14',
+  },
+  guayaba: {
+    bg: 'linear-gradient(135deg, #FFB4B7 0%, #FF5459 100%)',
+    ink: '#FFF9F0',
+    chipBg: 'rgba(255, 84, 89, 0.12)',
+    chipInk: '#b32f34',
+  },
+  aqua: {
+    bg: 'linear-gradient(135deg, #8FE6D2 0%, #00B896 100%)',
+    ink: '#0a2f27',
+    chipBg: 'rgba(0, 184, 150, 0.12)',
+    chipInk: '#0a7660',
+  },
+  carbon: {
+    bg: 'linear-gradient(135deg, #4a4a4d 0%, #1C1C1E 100%)',
+    ink: '#FFF9F0',
+    chipBg: 'rgba(28, 28, 30, 0.08)',
+    chipInk: '#1C1C1E',
+  },
+};
+
+const accent = accentMap[project.accent];
+const initial = project.title.replace(/[^A-Za-zÁÉÍÓÚÑáéíóúñ0-9]/g, '').charAt(0).toUpperCase() || '·';
+const description = variant === 'full' ? project.longDescription : project.description;
+const detailHref = `/proyectos/${project.slug}`;
+const heroImage = project.hero ?? project.gallery[0];
+---
+
+<article class={`project-card project-card--${variant} fade-in`}>
+  <div class="project-visual" aria-hidden="true">
+    {heroImage?.src ? (
+      <img src={heroImage.src} alt="" loading="lazy" />
+    ) : (
+      <div class="project-placeholder" style={`background: ${accent.bg}; color: ${accent.ink};`}>
+        <span class="project-placeholder-mark">{initial}</span>
+        <span class="project-placeholder-label">{project.client}</span>
+      </div>
+    )}
+  </div>
+  <div class="project-body">
+    <div class="project-tags">
+      {project.tags.map((tag) => (
+        <span class="project-tag" style={`background: ${accent.chipBg}; color: ${accent.chipInk};`}>
+          {tag}
+        </span>
+      ))}
+    </div>
+    <h3 class="project-title">
+      <a href={detailHref} class="project-title-link">{project.title}</a>
+    </h3>
+    <p class="project-service">{project.service}</p>
+    <p class="project-description">{description}</p>
+    <div class="project-footer">
+      <span class="project-cta">Ver proyecto →</span>
+      {project.liveUrl && (
+        <a
+          href={project.liveUrl}
+          class="project-live"
+          target="_blank"
+          rel="noopener"
+          onclick="event.stopPropagation()"
+        >
+          Ver en vivo ↗
+        </a>
+      )}
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid rgba(28, 28, 30, 0.1);
+    border-radius: 14px;
+    background: var(--color-crema);
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .project-card:hover {
+    border-color: var(--color-sol);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px -20px rgba(28, 28, 30, 0.18);
+  }
+
+  .project-visual {
+    aspect-ratio: 16 / 9;
+    background: rgba(28, 28, 30, 0.04);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22px 24px;
+    position: relative;
+  }
+
+  .project-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255, 249, 240, 0.18) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(28, 28, 30, 0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .project-placeholder-mark {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 8vw, 96px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -3px;
+    align-self: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-placeholder-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.78;
+    align-self: flex-end;
+    position: relative;
+    z-index: 1;
+    max-width: 80%;
+    text-align: right;
+  }
+
+  .project-body {
+    padding: 24px 26px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+
+  .project-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 22px);
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+    color: var(--color-carbon);
+    margin: 0;
+  }
+
+  .project-title-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Stretched link: title <a> covers the entire card */
+  .project-title-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .project-card:hover .project-title-link {
+    color: var(--color-guayaba);
+  }
+
+  .project-service {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin: 0;
+  }
+
+  .project-description {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-carbon);
+    opacity: 0.72;
+    margin: 4px 0 0;
+    flex: 1;
+  }
+
+  .project-card--full .project-description {
+    font-size: 15px;
+  }
+
+  .project-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 14px;
+    margin-top: 4px;
+    border-top: 1px solid rgba(28, 28, 30, 0.08);
+    flex-wrap: wrap;
+  }
+
+  .project-cta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-carbon);
+    letter-spacing: -0.1px;
+  }
+
+  .project-card:hover .project-cta {
+    color: var(--color-guayaba);
+  }
+
+  .project-live {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-aqua);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+  }
+
+  .project-live:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 600px) {
+    .project-body {
+      padding: 20px 20px 22px;
+    }
+  }
+</style>

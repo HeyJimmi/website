@@ -1,0 +1,80 @@
+---
+import { projects } from '../data/projects';
+import ProjectCard from './ProjectCard.astro';
+
+const featured = projects.slice(0, 4);
+---
+
+<div class="section" id="proyectos">
+  <div class="section-header projects-header fade-in">
+    <div>
+      <p class="section-eyebrow">Proyectos</p>
+      <h2>Lo que hemos construido para negocios reales.</h2>
+    </div>
+    <a href="/proyectos" class="projects-header-link">Ver todos los proyectos →</a>
+  </div>
+  <div class="projects-grid">
+    {featured.map((project) => (
+      <ProjectCard project={project} variant="preview" />
+    ))}
+  </div>
+  <div class="projects-footer fade-in">
+    <a href="/proyectos" class="btn-secondary projects-footer-btn">Ver todos los proyectos</a>
+  </div>
+</div>
+
+<style>
+  .projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .projects-header-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-carbon);
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+
+  .projects-header-link:hover {
+    opacity: 1;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .projects-footer {
+    display: none;
+    margin-top: 28px;
+    justify-content: center;
+  }
+
+  .projects-footer-btn {
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 900px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .projects-header-link {
+      display: none;
+    }
+
+    .projects-footer {
+      display: flex;
+    }
+  }
+</style>
