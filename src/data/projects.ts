@@ -117,6 +117,96 @@ export const projects: Project[] = [
     liveUrl: 'https://the-woods-landing.vercel.app/',
   },
   {
+    slug: 'the-woods-crm',
+    title: 'The Woods CRM',
+    client: 'The Woods',
+    clientType: 'Herramienta interna · materiales arquitectónicos premium',
+    year: '2025',
+    category: 'PyMEs',
+    tags: ['CRM', 'Herramienta interna', 'Gestión de proyectos', 'Operación'],
+    service: 'CRM a la medida · gestión integral de operación',
+    summary:
+      'El sistema operativo del negocio. Un CRM a la medida para The Woods que unifica proyectos, clientes, cotizaciones, catálogo, inventario, pagos y contabilidad en una sola plataforma interna — del primer contacto a la entrega final.',
+    description:
+      'Un CRM interno a la medida para The Woods: proyectos, clientes, cotizaciones, catálogo, inventario, pagos y contabilidad en una sola plataforma para correr toda la operación del negocio.',
+    longDescription:
+      'Después de construir el sitio editorial de The Woods, dimos el siguiente paso: digitalizar toda la operación interna. The Woods CRM es una plataforma a la medida que reemplaza hojas de cálculo, chats sueltos y archivos dispersos por un solo lugar. Desde un dashboard de inicio, el equipo gestiona tareas, proyectos, clientes, cotizaciones, expedientes y un inbox unificado; controla pagos, calendario, catálogo, inventario y requisiciones; y cierra el ciclo con técnicos en campo, documentos, KPIs, reportes y contabilidad. Todo conectado: una cotización aprobada se vuelve proyecto, jala material del catálogo e inventario, agenda técnicos y alimenta los reportes financieros sin recapturar nada.',
+    challenge:
+      'The Woods entrega proyectos premium con muchas piezas en movimiento — materiales, técnicos, cotizaciones, pagos a proveedores — pero la operación vivía en WhatsApp, Excel y la cabeza de unas cuantas personas. La información se perdía entre cotización y entrega, no había visibilidad de inventario ni de la salud financiera de cada proyecto, y escalar significaba más caos, no más control.',
+    approach:
+      'Diseñamos un CRM a la medida del flujo real del negocio, no un template genérico. Una sola plataforma con módulos conectados: dashboard de inicio, tareas, proyectos, clientes, cotizaciones, expedientes e inbox; pagos, calendario, catálogo, inventario y requisiciones; técnicos, documentos, KPIs, reportes y contabilidad. UI limpia y consistente para que el equipo la adopte sin curva, y datos que fluyen entre módulos para eliminar la doble captura.',
+    hero: {
+      alt: 'Dashboard de inicio de The Woods CRM con métricas y resumen de la operación',
+      src: '/projects/the-woods-crm/01-inicio.png',
+      variant: 'screen',
+      aspect: 'wide',
+    },
+    gallery: [
+      {
+        alt: 'Módulo de proyectos del CRM con listado y estados de avance',
+        caption: 'Proyectos · operación central',
+        src: '/projects/the-woods-crm/02-proyectos.png',
+        variant: 'screen',
+        aspect: 'wide',
+      },
+      {
+        alt: 'Módulo de clientes del CRM con directorio y fichas',
+        caption: 'Clientes · directorio',
+        src: '/projects/the-woods-crm/03-clientes.png',
+        variant: 'screen',
+        aspect: 'wide',
+      },
+      {
+        alt: 'Catálogo de productos y materiales dentro del CRM',
+        caption: 'Catálogo de materiales',
+        src: '/projects/the-woods-crm/04-catalogo.png',
+        variant: 'screen',
+        aspect: 'wide',
+      },
+      {
+        alt: 'Vista de detalle de un producto del catálogo en el CRM',
+        caption: 'Catálogo · detalle de producto',
+        src: '/projects/the-woods-crm/05-catalogo-detalle.png',
+        variant: 'detail',
+        aspect: 'wide',
+      },
+      {
+        alt: 'Calendario del CRM con agenda de proyectos y técnicos',
+        caption: 'Calendario · agenda',
+        src: '/projects/the-woods-crm/06-calendario.png',
+        variant: 'screen',
+        aspect: 'wide',
+      },
+      {
+        alt: 'Inbox unificado de comunicación dentro del CRM',
+        caption: 'Inbox unificado',
+        src: '/projects/the-woods-crm/07-inbox.png',
+        variant: 'screen',
+        aspect: 'wide',
+      },
+    ],
+    features: [
+      'Dashboard de inicio con métricas y salud de la operación',
+      'Gestión de proyectos, tareas y expedientes conectados',
+      'Clientes, cotizaciones e inbox unificado de comunicación',
+      'Catálogo de materiales con inventario y requisiciones',
+      'Pagos, contabilidad y reportes financieros por proyecto',
+      'Calendario y coordinación de técnicos en campo',
+      'KPIs y reportes para decisiones con datos reales',
+    ],
+    goals: [
+      'Reemplazar Excel, WhatsApp y archivos sueltos por una sola plataforma',
+      'Conectar el ciclo completo: de la cotización a la entrega y la facturación',
+      'Dar visibilidad de inventario, técnicos y finanzas en tiempo real',
+    ],
+    results: [
+      { value: '17', label: 'Módulos en una sola plataforma' },
+      { value: '1', label: 'Fuente de verdad para toda la operación' },
+      { value: '0', label: 'Doble captura entre cotización y entrega' },
+    ],
+    accent: 'carbon',
+  },
+  {
     slug: 'academia-medica',
     title: 'ALES · Academia de Excelencia',
     client: 'ALES',
